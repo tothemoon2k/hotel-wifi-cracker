@@ -1,0 +1,15 @@
+{
+  "name": "hotel-wifi-cracker",
+  "version": "1.0.0",
+  "description": "Crack into popular hotel chain wifi, without being a guest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JTG",
+  "license": "ISC",
+  "dependencies": {
+    "common-last-names": "^1.1.3",
+    "puppeteer-extra": "^3.3.6"
+  }
+}
