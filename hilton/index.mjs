@@ -6,11 +6,13 @@ import fs from "fs";
 
 const allNames = names.all;
 
+/*
 for(let name of allNames){
     for(let roomNumber of rooms.commonRoomNumbers){
         console.log(name, roomNumber)
     }
 }
+*/
 
 function delay(time) {
     return new Promise(function(resolve) { 
@@ -40,4 +42,28 @@ async function go() {
     } catch(err){
         console.log("Error launching page")
     }
+
+    for(let name of allNames){
+        for(let roomNumber of rooms.commonRoomNumbers){
+            await page.waitForSelector('input[ng-model="nmrm.LastName"]');
+            await page.type('input[ng-model="nmrm.LastName"]', name);
+
+            await page.type('input[ng-model="nmrm.RoomNumber"]', String(roomNumber));
+    
+            await page.waitForSelector("button.btn-connect");
+            await page.click("button.btn-connect");
+
+            await delay(5000);
+
+            console.log("Going to next try")
+        }
+    }
+
+    /*
+    
+
+    
+    */
 }
+
+go();
